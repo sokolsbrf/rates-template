@@ -68,7 +68,7 @@ public class CurrenciesListAdapter extends BaseAdapter {
             currencyViewHolder.mCurrencyNameView.setText(currency.getName());
             currencyViewHolder.mCurrencyValueView.setText(currency.getValue().toString());
             currencyViewHolder.mCurrencyNominalView.setText(currency.getNominal().toString());
-            currencyViewHolder.mCurrencyNumCodeView.setText(currency.getNumCode());
+            currencyViewHolder.mCurrencyNumCodeView.setText(String.valueOf(currency.getNumCode()));
             currencyViewHolder.mCurrencyCharCodeView.setText(currency.getCharCode());
         } else {
             currencyViewHolder.mCurrencyNameView.setText("text");
