@@ -1,5 +1,7 @@
 package ru.sberbank.learning.rates;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -24,9 +26,11 @@ public class CurrencyLoaderTask extends AsyncTask<Void,Void,CurrenciesList> {
     private WeakReference<CurrenciesStorage> mCurrenciesStorageWeakReference;
     private WeakReference<OnAsyncTaskFinishable> mOnAsyncTaskFinishableWeakReference;
 
+
     public CurrencyLoaderTask(CurrenciesStorage currenciesStorage, OnAsyncTaskFinishable activity){
-        mCurrenciesStorageWeakReference = new WeakReference<CurrenciesStorage>(currenciesStorage);
-        mOnAsyncTaskFinishableWeakReference = new WeakReference<OnAsyncTaskFinishable>(activity);
+        mCurrenciesStorageWeakReference = new WeakReference<>(currenciesStorage);
+        mOnAsyncTaskFinishableWeakReference = new WeakReference<>(activity);
+
     }
 
     @Override

@@ -1,6 +1,7 @@
 package ru.sberbank.learning.rates;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -10,8 +11,9 @@ public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
 
     private ListView mCurrenciesListView;
     private CurrenciesListAdapter mCurrenciesListAdapter;
-    CurrenciesStorage mCurrenciesStorage;
-    CurrencyLoaderTask currencyLoaderTask;
+    private CurrenciesStorage mCurrenciesStorage;
+    private CurrencyLoaderTask currencyLoaderTask;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
         mCurrenciesStorage = ((AppStorage)getApplication()).getCurrenciesStorage();
 
         if(!mCurrenciesStorage.isReady()){
+            mProgressDialog = ProgressDialog.show(this, "Loading","Loading currencies...",false,false);
             currencyLoaderTask = new CurrencyLoaderTask(mCurrenciesStorage,this);
             currencyLoaderTask.execute();
         }
@@ -33,6 +36,7 @@ public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
 
     @Override
     public void onAsyncTaskFinished() {
+        mProgressDialog.dismiss();
         mCurrenciesListAdapter = new CurrenciesListAdapter(mCurrenciesStorage);
         mCurrenciesListView.setAdapter(mCurrenciesListAdapter);
     }
