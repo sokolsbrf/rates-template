@@ -11,6 +11,7 @@ public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
     private ListView mCurrenciesListView;
     private CurrenciesListAdapter mCurrenciesListAdapter;
     CurrenciesStorage mCurrenciesStorage;
+    CurrencyLoaderTask currencyLoaderTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,20 +22,25 @@ public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
         mCurrenciesStorage = ((AppStorage)getApplication()).getCurrenciesStorage();
 
         if(!mCurrenciesStorage.isReady()){
-            CurrencyLoaderTask currencyLoaderTask = new CurrencyLoaderTask(mCurrenciesStorage,this);
+            currencyLoaderTask = new CurrencyLoaderTask(mCurrenciesStorage,this);
             currencyLoaderTask.execute();
         }
-        else{
+        else {
             mCurrenciesListAdapter = new CurrenciesListAdapter(mCurrenciesStorage);
             mCurrenciesListView.setAdapter(mCurrenciesListAdapter);
         }
-
-
     }
 
     @Override
     public void onAsyncTaskFinished() {
         mCurrenciesListAdapter = new CurrenciesListAdapter(mCurrenciesStorage);
         mCurrenciesListView.setAdapter(mCurrenciesListAdapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(currencyLoaderTask != null)
+            currencyLoaderTask.cancel(true);
     }
 }
