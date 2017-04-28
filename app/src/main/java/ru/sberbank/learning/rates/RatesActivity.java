@@ -24,9 +24,9 @@ public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
         mCurrenciesStorage = ((AppStorage)getApplication()).getCurrenciesStorage();
 
         if(!mCurrenciesStorage.isReady()){
-            mProgressDialog = ProgressDialog.show(this, "Loading","Loading currencies...",false,false);
             currencyLoaderTask = new CurrencyLoaderTask(mCurrenciesStorage,this);
             currencyLoaderTask.execute();
+            mProgressDialog = ProgressDialog.show(this, "Loading","Loading currencies...",false,false);
         }
         else {
             mCurrenciesListAdapter = new CurrenciesListAdapter(mCurrenciesStorage);
