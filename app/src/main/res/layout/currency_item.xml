@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+                android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/view_margin">
+
+        <LinearLayout
+            android:id="@+id/name_nominal_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/currency_nominal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="@dimen/view_text_size"
+                android:textColor="@color/colorPrimary"
+                tools:text="100"/>
+
+            <TextView
+                android:id="@+id/currency_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/view_text_size"
+                android:textColor="@color/colorPrimary"
+                tools:text="Currency name"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/name_nominal_container">
+
+            <TextView
+                android:id="@+id/currency_char_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                tools:text="CODE"/>
+            <TextView
+                android:id="@+id/currency_num_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="(number)"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/currency_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        tools:text="100"/>
+
+</LinearLayout>
