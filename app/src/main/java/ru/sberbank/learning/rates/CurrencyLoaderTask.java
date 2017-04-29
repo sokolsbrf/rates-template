@@ -51,9 +51,12 @@ public class CurrencyLoaderTask extends AsyncTask<Void,Void,CurrenciesList> {
         CurrenciesStorage currenciesStorage = mCurrenciesStorageWeakReference.get();
         OnAsyncTaskFinishable activity = mOnAsyncTaskFinishableWeakReference.get();
 
-        currenciesStorage.setLoadedList(currencies);
-        activity.onAsyncTaskFinished();
-
+        if (currenciesStorage != null) {
+            currenciesStorage.setLoadedList(currencies);
+        }
+        if (activity != null) {
+            activity.onAsyncTaskFinished();
+        }
 
         super.onPostExecute(currencies);
     }
