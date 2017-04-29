@@ -3,6 +3,8 @@ package ru.sberbank.learning.rates;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -34,11 +36,35 @@ public class CalcActivity extends Activity {
         String charCode = getIntent().getStringExtra(RatesActivity.CHAR_CODE);
         currency = mCurrenciesStorage.findByCode(charCode);
 
-        if(currency != null)
+        if(currency != null) {
             mCharCodeTextView.setText(currency.getCharCode());
-            mSumEditText.
-        else
+            mSumEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if(!s.toString().equals("")) {
+                        double result = Double.parseDouble(s.toString()) * currency.getValue() / currency.getNominal();
+                        mResultTextView.setText(String.format("%.2f",result));
+                    }else{
+                        mResultTextView.setText("0.00");
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+
+        }
+        else {
             mCharCodeTextView.setText("not found");
+        }
 
     }
 }
