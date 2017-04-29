@@ -2,12 +2,17 @@ package ru.sberbank.learning.rates;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import ru.sberbank.learning.rates.networking.Currency;
 import ru.sberbank.learning.rates.storage.CurrenciesStorage;
 
 public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
+    public static final String CHAR_CODE = "CHAR_CODE";
 
     private ListView mCurrenciesListView;
     private CurrenciesListAdapter mCurrenciesListAdapter;
@@ -32,6 +37,17 @@ public class RatesActivity extends Activity implements OnAsyncTaskFinishable{
             mCurrenciesListAdapter = new CurrenciesListAdapter(mCurrenciesStorage);
             mCurrenciesListView.setAdapter(mCurrenciesListAdapter);
         }
+
+        mCurrenciesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(RatesActivity.this, CalcActivity.class);
+
+
+                intent.putExtra(CHAR_CODE, mCurrenciesStorage.getLoadedList().getCurrencies().get(position).getCharCode());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

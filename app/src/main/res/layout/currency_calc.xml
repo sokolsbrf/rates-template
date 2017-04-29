@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/calc_edit_charcode_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/view_margin">
+        <EditText
+            android:layout_weight="1"
+            android:id="@+id/calc_currency_value_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            tools:text="123231231232"/>
+        <TextView
+            android:id="@+id/calc_char_code_view"
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            tools:text="AUD"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/calc_currency_result_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calc_edit_charcode_container"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:text="@string/result_text_view" />
+    <TextView
+        android:id="@+id/calc_result_num_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calc_currency_result_text_view"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:text="@string/result_text_default" />
+
+
+
+
+</RelativeLayout>
