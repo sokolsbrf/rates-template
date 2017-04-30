@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    android:id="@+id/listElem"
+    android:orientation="horizontal"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relLay"
+    android:layout_weight="1">
+    <TextView
+        android:id="@+id/nominal"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        tools:text="Nominal"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/name_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/nominal"
+        tools:text="NAME OF VALUTE"
+        android:layout_margin="13dp"
+        />
+
+    <TextView
+        android:id="@+id/index_of_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nominal"
+        tools:text="ID"
+        android:layout_marginLeft="10dp"
+        android:textSize="10sp"/>
+
+</RelativeLayout>
+
+    <TextView
+        android:layout_weight="2"
+        android:id="@+id/course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textSize="20sp"
+        tools:text="COURSE"/>
+
+
+</LinearLayout>
