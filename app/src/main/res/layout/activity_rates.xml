@@ -1,10 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ru.sberbank.learning.rates.RatesActivity">
+
+    <ListView
+        android:id="@+id/CouseList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/list_elem"
+
+        android:visibility="visible"
+
+        >
+
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/noInternetLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/noInternetLayoutImg"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/ic_adb_black_24dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_margin="15dp"
+            android:id="@+id/noInternetLayoutText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/noInternetLayoutImg"
+            android:textSize="20sp"
+            android:text="NO INTERNET CONNECTION! \n\t\t  sorry bro, you're offline"
+            />
+        <Button
+            android:id="@+id/noInternetLayoutButt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/noInternetLayoutText"
+            android:layout_centerHorizontal="true"
+            android:text="Let's try one more time"
+            />
+
+
+    </RelativeLayout>
+
+
+
 
 
 </FrameLayout>

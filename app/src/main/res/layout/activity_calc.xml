@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editingNum"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/index_of_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                tools:text="OF VALUE" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/raven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/head"
+
+            android:text="="
+            android:layout_marginLeft="100dp"
+            android:textSize="30sp"/>
+        <TextView
+            android:id="@+id/valueOutput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/raven"
+            tools:text="VALUE_into"
+            android:layout_marginLeft="70dp"
+            />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
